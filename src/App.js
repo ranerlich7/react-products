@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Product from "./components/Product";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -19,9 +20,7 @@ function App() {
     <>
       <ol>
         {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
+          <Product key={product.id} product={product} />
         ))}
       </ol>
       <br />
