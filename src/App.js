@@ -17,7 +17,13 @@ function App() {
   }
   return (
     <>
-      {products.length > 0 ? products[0].name : "no products yet"}
+      <ol>
+        {products.map((product) => (
+          <li key={product.id}>
+            {product.name} - {product.price}
+          </li>
+        ))}
+      </ol>
       <br />
       <button onClick={getProducts}>Get Products</button>
     </>
