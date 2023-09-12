@@ -24,7 +24,9 @@ function App() {
         ))}
       </ol>
       <br />
-      <button onClick={getProducts}>Get Products</button>
+      <button className="btn btn-success" onClick={getProducts}>
+        Get Products
+      </button>
     </>
   );
 }
