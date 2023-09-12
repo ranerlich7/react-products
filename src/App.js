@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "./components/Product";
 
 function App() {
   const [products, setProducts] = useState([]);
 
+  useEffect(getProducts, []); // when loading the page for the first time - getProducts()
   function getProducts() {
     axios
       .get("https://django-rest-product.onrender.com/product")
@@ -18,15 +19,14 @@ function App() {
   }
   return (
     <>
-      <ol>
+      <div className="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
         {products.map((product) => (
-          <Product key={product.id} product={product} />
+          <div className="col">
+            <Product key={product.id} product={product} />
+          </div>
         ))}
-      </ol>
+      </div>
       <br />
-      <button className="btn btn-success" onClick={getProducts}>
-        Get Products
-      </button>
     </>
   );
 }
