@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar({ categories, clickButton }) {
   return (
     <>
@@ -14,9 +16,7 @@ function Navbar({ categories, clickButton }) {
           </li>
         ))}
         <li className="nav-item">
-          <a className="nav-link" href="http://localhost:3000/login">
-            Login
-          </a>
+          <Link to="/login">Login</Link>
         </li>
       </ul>
     </>

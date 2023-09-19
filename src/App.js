@@ -45,9 +45,8 @@ function App() {
   }
   return (
     <>
-      <Navbar categories={categories} clickButton={clickButton} />
-
       <BrowserRouter>
+        <Navbar categories={categories} clickButton={clickButton} />
         <Routes>
           <Route
             path="/"
@@ -66,7 +65,6 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NoPage />} />
-          {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
       </BrowserRouter>
     </>
