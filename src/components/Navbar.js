@@ -1,25 +1,24 @@
 function Navbar() {
   return (
     <>
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+      <ul className="nav">
+        <li className="nav-item">
+          <a
+            className="nav-link active"
+            aria-current="page"
+            href="https://www.google.com"
+          >
             Active
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="https://www.google.com">
             Link
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="https://www.google.com">
             Link
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">
-            Disabled
           </a>
         </li>
       </ul>
