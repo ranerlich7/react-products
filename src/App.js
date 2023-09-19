@@ -2,6 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Product from "./components/Product";
 import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import NoPage from "./components/NoPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -43,14 +46,29 @@ function App() {
   return (
     <>
       <Navbar categories={categories} clickButton={clickButton} />
-      <div className="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
-        {products.map((product) => (
-          <div key={product.id} className="col">
-            <Product product={product} />
-          </div>
-        ))}
-      </div>
-      <br />
+
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
+                  {products.map((product) => (
+                    <div key={product.id} className="col">
+                      <Product product={product} />
+                    </div>
+                  ))}
+                </div>
+                <br />
+              </>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NoPage />} />
+          {/* <Route path="/register" element={<Register />} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

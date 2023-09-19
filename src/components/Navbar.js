@@ -1,4 +1,4 @@
-function Navbar({ categories, clickButton  }) {
+function Navbar({ categories, clickButton }) {
   return (
     <>
       <ul className="nav">
@@ -13,6 +13,11 @@ function Navbar({ categories, clickButton  }) {
             </button>
           </li>
         ))}
+        <li className="nav-item">
+          <a className="nav-link" href="http://localhost:3000/login">
+            Login
+          </a>
+        </li>
       </ul>
     </>
   );
