@@ -1,26 +1,19 @@
-function Navbar() {
+function Navbar({ categories }) {
   return (
     <>
       <ul className="nav">
-        <li className="nav-item">
-          <a
-            className="nav-link active"
-            aria-current="page"
-            href="https://www.google.com"
-          >
-            Active
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="https://www.google.com">
-            Link
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="https://www.google.com">
-            Link
-          </a>
-        </li>
+        {/* {categories.map()} */}
+        {categories.map((category) => (
+          <li className="nav-item">
+            <a
+              className="nav-link"
+              aria-current="page"
+              href="https://www.google.com"
+            >
+              {category.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </>
   );
