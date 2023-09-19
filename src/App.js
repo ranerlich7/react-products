@@ -6,10 +6,14 @@ import Navbar from "./components/Navbar";
 function App() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState(1);
 
-  useEffect(getProducts, []); // when loading the page for the first time - getProducts()
+  useEffect(getProducts, [currentCategory]); // when loading the page for the first time - getProducts()
   useEffect(getCategories, []); // when loading the page for the first time - getCategories()
-
+  function clickButton(id) {
+    console.log("click!", id);
+    setCurrentCategory(id);
+  }
   function getCategories() {
     axios
       .get("https://django-rest-product.onrender.com/category")
@@ -24,7 +28,10 @@ function App() {
 
   function getProducts() {
     axios
-      .get("https://django-rest-product.onrender.com/product")
+      .get(
+        "https://django-rest-product.onrender.com/product?category=" +
+          currentCategory
+      )
       .then((response) => {
         console.log(response.data);
         setProducts(response.data);
@@ -35,7 +42,7 @@ function App() {
   }
   return (
     <>
-      <Navbar categories={categories} />
+      <Navbar categories={categories} clickButton={clickButton} />
       <div className="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
         {products.map((product) => (
           <div key={product.id} className="col">

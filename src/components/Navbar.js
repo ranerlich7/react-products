@@ -1,17 +1,16 @@
-function Navbar({ categories }) {
+function Navbar({ categories, clickButton  }) {
   return (
     <>
       <ul className="nav">
-        {/* {categories.map()} */}
         {categories.map((category) => (
           <li className="nav-item">
-            <a
+            <button
               className="nav-link"
               aria-current="page"
-              href="https://www.google.com"
+              onClick={() => clickButton(category.id)}
             >
-              {category.name}
-            </a>
+              {category.name} -({category.id})
+            </button>
           </li>
         ))}
       </ul>
