@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Product from "./components/Product";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -19,6 +20,7 @@ function App() {
   }
   return (
     <>
+      <Navbar />
       <div className="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
         {products.map((product) => (
           <div className="col">
