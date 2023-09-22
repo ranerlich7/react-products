@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({ categories, clickButton }) {
+  const [searchText, setSearchText] = useState("ran"); // this is the value of the search field
   function searchProduct() {
     console.log("searching for product");
   }
@@ -23,7 +25,8 @@ function Navbar({ categories, clickButton }) {
           </li>
         ))}
         <li className="nav-item">
-          <input />
+          <input value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+
         </li>
         <li className="nav-item">
           <button className="btn btn-info" onClick={searchProduct}>
