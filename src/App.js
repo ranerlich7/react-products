@@ -29,12 +29,16 @@ function App() {
       });
   }
 
-  function getProducts() {
+  function getProducts(searchText = null) {
+    let url =
+      "https://django-rest-product.onrender.com/product?category=" +
+      currentCategory;
+    if (searchText) {
+      url =
+        "https://django-rest-product.onrender.com/product?search=" + searchText;
+    }
     axios
-      .get(
-        "https://django-rest-product.onrender.com/product?category=" +
-          currentCategory
-      )
+      .get(url)
       .then((response) => {
         console.log(response.data);
         setProducts(response.data);
@@ -43,10 +47,19 @@ function App() {
         console.error("Error fetching data:", error);
       });
   }
+  function searchProduct(searchText) {
+    console.log("searching for product", searchText);
+    getProducts(searchText);
+  }
+
   return (
     <>
       <BrowserRouter>
-        <Navbar categories={categories} clickButton={clickButton} />
+        <Navbar
+          categories={categories}
+          clickButton={clickButton}
+          searchProduct={searchProduct}
+        />
         <Routes>
           <Route
             path="/"

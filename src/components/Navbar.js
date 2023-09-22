@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar({ categories, clickButton }) {
+function Navbar({ categories, clickButton, searchProduct }) {
   const [searchText, setSearchText] = useState(""); // this is the value of the search field
-  function searchProduct(searchText) {
-    console.log("searching for product", searchText);
-  }
   return (
     <>
       <ul className="nav">
