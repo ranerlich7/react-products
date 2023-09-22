@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import NoPage from "./components/NoPage";
+import Footer from "./components/Footer";
+import Register from "./components/Register";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -48,6 +50,16 @@ function App() {
         console.error("Error fetching data:", error);
       });
   }
+
+  // example of filter in client
+  // function searchProduct(searchText) {
+
+  //   const filteredProducts = products.filter((product) =>
+  //   product.name.toLowerCase().includes(searchText.toLowerCase())
+  // );
+  // setProducts(filteredProducts);
+  // }
+
   function searchProduct(searchText) {
     console.log("searching for product", searchText);
     getProducts(searchText);
@@ -79,8 +91,10 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
