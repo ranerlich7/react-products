@@ -7,18 +7,19 @@ function Navbar({ categories, clickButton, searchProduct }) {
     <>
       <ul className="nav">
         <li className="nav-item">
-          <button className="nav-link" onClick={() => clickButton("")}>
+          <Link to="/" className="nav-link" onClick={() => clickButton("")}>
             All Products
-          </button>
+          </Link>
         </li>
         {categories.map((category) => (
           <li key={category.id} className="nav-item">
-            <button
+            <Link
+              to="/"
               className="nav-link"
               onClick={() => clickButton(category.id)}
             >
               {category.name} -({category.id})
-            </button>
+            </Link>
           </li>
         ))}
         <li className="nav-item">
@@ -28,12 +29,13 @@ function Navbar({ categories, clickButton, searchProduct }) {
           />
         </li>
         <li className="nav-item">
-          <button
+          <Link
+            to="/"
             className="btn btn-info"
             onClick={() => searchProduct(searchText)}
           >
             Search
-          </button>
+          </Link>
         </li>
         <li className="nav-item">
           <Link to="/login">Login</Link>

@@ -15,6 +15,7 @@ function App() {
 
   useEffect(getProducts, [currentCategory]); // when loading the page for the first time - getProducts()
   useEffect(getCategories, []); // when loading the page for the first time - getCategories()
+  // when category is clicked
   function clickButton(id) {
     console.log("click!", id);
     setCurrentCategory(id);
