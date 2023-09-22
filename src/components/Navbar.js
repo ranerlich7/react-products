@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({ categories, clickButton }) {
-  const [searchText, setSearchText] = useState("ran"); // this is the value of the search field
-  function searchProduct() {
-    console.log("searching for product");
+  const [searchText, setSearchText] = useState(""); // this is the value of the search field
+  function searchProduct(searchText) {
+    console.log("searching for product", searchText);
   }
   return (
     <>
@@ -25,11 +25,16 @@ function Navbar({ categories, clickButton }) {
           </li>
         ))}
         <li className="nav-item">
-          <input value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
-
+          <input
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
         </li>
         <li className="nav-item">
-          <button className="btn btn-info" onClick={searchProduct}>
+          <button
+            className="btn btn-info"
+            onClick={() => searchProduct(searchText)}
+          >
             Search
           </button>
         </li>
