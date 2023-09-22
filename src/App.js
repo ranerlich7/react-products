@@ -7,9 +7,9 @@ import Login from "./components/Login";
 import NoPage from "./components/NoPage";
 
 function App() {
-  const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(1);
+  const [products, setProducts] = useState([]);
 
   useEffect(getProducts, [currentCategory]); // when loading the page for the first time - getProducts()
   useEffect(getCategories, []); // when loading the page for the first time - getCategories()
@@ -30,6 +30,7 @@ function App() {
   }
 
   function getProducts(searchText = null) {
+    console.log("!!!!!!!!!!!!!!", searchText);
     let url =
       "https://django-rest-product.onrender.com/product?category=" +
       currentCategory;
@@ -50,6 +51,7 @@ function App() {
   function searchProduct(searchText) {
     console.log("searching for product", searchText);
     getProducts(searchText);
+    setCurrentCategory("stamsadgfsadhgdshrfdrah"); // setting the category so that the last category will work if clicked again.
   }
 
   return (
