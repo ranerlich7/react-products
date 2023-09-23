@@ -1,5 +1,5 @@
 function NoPage() {
-  return <div>Sorry no page found!</div>;
+  return <div>Sorry no products found! please login to continue</div>;
 }
 
 export default NoPage;
