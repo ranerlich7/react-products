@@ -8,6 +8,8 @@ import NoPage from "./components/NoPage";
 import Footer from "./components/Footer";
 import Register from "./components/Register";
 import Cart from "./components/Cart";
+import AddProduct from "./components/AddProduct";
+import { Alert } from "react-bootstrap";
 
 function App() {
   // "https://django-rest-product.onrender.com/product?category="
@@ -15,10 +17,19 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(1);
   const [products, setProducts] = useState([]);
+  const [message, setMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(getProducts, [currentCategory]); // when loading the page for the first time - getProducts()
   useEffect(getCategories, []); // when loading the page for the first time - getCategories()
   // when category is clicked
+  function productAdded() {
+    setCurrentCategory("asgasgasg");
+    setCurrentCategory("");
+    setMessage("Product Added Succesfuly");
+    setShowAlert(true);
+  }
+
   function clickButton(id) {
     console.log("click!", id);
     setCurrentCategory(id);
@@ -70,6 +81,16 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {showAlert && (
+          <Alert
+            variant="success"
+            onClose={() => setShowAlert(false)}
+            dismissible
+          >
+            {message}
+          </Alert>
+        )}
+
         <Navbar
           categories={categories}
           clickButton={clickButton}
@@ -94,6 +115,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/add_product"
+            element={<AddProduct productAdded={productAdded} />}
+          />
           <Route path="*" element={<NoPage />} />
         </Routes>
         <Footer />

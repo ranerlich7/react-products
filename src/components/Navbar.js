@@ -48,6 +48,11 @@ function Navbar({ categories, clickButton, searchProduct }) {
           </li>
         )}
         <li className="nav-item">
+          <Link className="mx-1 nav-link" to="/add_product">
+            Add Product
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/cart">
             <BsCart4 style={{ fontSize: "2em", color: "blue" }} />
           </Link>
