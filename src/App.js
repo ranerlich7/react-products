@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Register from "./components/Register";
 
 function App() {
+  // "https://django-rest-product.onrender.com/product?category="
+  const HOST_URL = "http://localhost:8000";
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(1);
   const [products, setProducts] = useState([]);
@@ -22,7 +24,7 @@ function App() {
   }
   function getCategories() {
     axios
-      .get("https://django-rest-product.onrender.com/category")
+      .get(HOST_URL + "/category")
       .then((response) => {
         console.log("categories are:", response.data);
         setCategories(response.data);
@@ -34,12 +36,9 @@ function App() {
 
   function getProducts(searchText = null) {
     console.log("!!!!!!!!!!!!!!", searchText);
-    let url =
-      "https://django-rest-product.onrender.com/product?category=" +
-      currentCategory;
+    let url = HOST_URL + "/product?category=" + currentCategory;
     if (searchText) {
-      url =
-        "https://django-rest-product.onrender.com/product?search=" + searchText;
+      url = HOST_URL + "/product?search=" + searchText;
     }
     axios
       .get(url)
@@ -69,6 +68,7 @@ function App() {
 
   return (
     <>
+      <img src={process.env.PUBLIC_URL + "/logo192.png"} alt="logo" />
       <BrowserRouter>
         <Navbar
           categories={categories}

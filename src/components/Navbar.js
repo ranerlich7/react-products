@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar({ categories, clickButton, searchProduct }) {
   const [searchText, setSearchText] = useState(""); // this is the value of the search field
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
-      <ul className="nav">
+      <ul className="nav my-4">
         <li className="nav-item">
           <Link to="/" className="nav-link" onClick={() => clickButton("")}>
             All Products
@@ -33,7 +34,7 @@ function Navbar({ categories, clickButton, searchProduct }) {
         <li className="nav-item">
           <Link
             to="/"
-            className="btn btn-info"
+            className="mx-1 btn btn-info"
             onClick={() => searchProduct(searchText)}
           >
             Search
@@ -41,7 +42,7 @@ function Navbar({ categories, clickButton, searchProduct }) {
         </li>
         {location.pathname === "/login" ? null : (
           <li className="nav-item">
-            <Link className="btn btn-success" to="/login">
+            <Link className="mx-1 btn btn-success" to="/login">
               Login
             </Link>
           </li>
