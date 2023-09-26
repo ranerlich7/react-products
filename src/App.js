@@ -68,7 +68,6 @@ function App() {
 
   return (
     <>
-      <img src={process.env.PUBLIC_URL + "/logo192.png"} alt="logo" />
       <BrowserRouter>
         <Navbar
           categories={categories}

@@ -36,6 +36,8 @@ function Footer() {
             </li>
           </ul>
           <p className="text-center text-muted">© 2022 Company, Inc</p>
+          {/* local image in public folder example */}
+          <img src={process.env.PUBLIC_URL + "/logo192.png"} alt="logo" />
         </footer>
       </div>
     </>
