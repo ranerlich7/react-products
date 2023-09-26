@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { BsCart4 } from "react-icons/bs";
 
 function Navbar({ categories, clickButton, searchProduct }) {
   const [searchText, setSearchText] = useState(""); // this is the value of the search field
   const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <>
@@ -47,6 +47,11 @@ function Navbar({ categories, clickButton, searchProduct }) {
             </Link>
           </li>
         )}
+        <li className="nav-item">
+          <Link to="/cart">
+            <BsCart4 style={{ fontSize: "2em", color: "blue" }} />
+          </Link>
+        </li>
       </ul>
     </>
   );

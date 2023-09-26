@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import NoPage from "./components/NoPage";
 import Footer from "./components/Footer";
 import Register from "./components/Register";
+import Cart from "./components/Cart";
 
 function App() {
   // "https://django-rest-product.onrender.com/product?category="
@@ -92,6 +93,7 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
         <Footer />
