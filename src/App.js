@@ -13,7 +13,7 @@ import { Alert } from "react-bootstrap";
 
 function App() {
   // "https://django-rest-product.onrender.com/product?category="
-  const HOST_URL = "http://localhost:8000";
+  const HOST_URL = "https://django-rest-product.onrender.com";
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState(1);
   const [products, setProducts] = useState([]);
