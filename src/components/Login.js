@@ -22,7 +22,7 @@ const Login = () => {
 
     try {
     //   const response = await axios.post('https://django-rest-product.onrender.com/token/', formData);
-      const response = await axios.post('http://localhost:8000/token/', formData);
+      const response = await axios.post('https://django-rest-product.onrender.com/token/', formData);
 
       // Assuming the server responds with a JWT token in the 'token' field of the response
       const token = response.data.access;
